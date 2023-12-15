@@ -1,0 +1,93 @@
+<div class="col-12 container-router" style="background-color: #f5f5f5"
+  [ngStyle]="{'display' : (ordemShow? 'block':'none')}">
+  <div class="row no-gutters d-flex align-items-center">
+    <div class="col-9">
+      <div class="d-flex align-items-center ms-2">
+        <h2><b>Ordens de produção {{this.anoSel}} <mat-icon>arrow_drop_down</mat-icon></b></h2>
+      </div>
+    </div>
+    <div class="col-2 d-flex justify-content-end pr-2">
+      <div style="color:#5D5FEF" (click)="ordemShow = false">
+        <h3><b>Filtro</b></h3>
+      </div>
+    </div>
+  </div>
+  <div class="row no-gutters">
+    <mat-form-field appearance="fill">
+      <mat-label>
+        <div class="d-flex align-items-center">
+          <mat-icon>search</mat-icon>Buscar ordens
+        </div>
+      </mat-label>
+      <input matInput type="text" [(ngModel)]="busca" (keyup)="buscarOrdem()">
+      <button *ngIf="busca" matSuffix mat-icon-button aria-label="Clear" (click)="busca=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <ng-container *ngIf="ordens?.length">
+    <ng-container *ngFor="let mes of meses">
+      <ng-container *ngIf="mes.ordens?.length">
+        <div class="ps-2 pt-2">
+          {{mes.nome}} - {{this.anoSel}}
+        </div>
+        <ng-container *ngFor="let ordem of mes.ordens">
+          <div class="row no-gutters mx-1 mt-2"
+            style="border: solid 1px #ccc; border-radius: 10px; background-color: white; border-left: solid 5px #ccc;"
+            [ngStyle]="{'border-left' : 'solid 5px ' + statusCor.get(ordem.status.id_status) }">
+            <div class="col-8 py-2 ps-2">
+              <div class="row no-gutters">
+                <b class="p-0">{{ordem?.cliente_nome}}</b>
+              </div>
+              <div class="row">
+                Ordem: #{{ordem?.id_ordem}}
+              </div>
+            </div>
+            <div class="col-3 py-2">
+              <div class="row no-gutters justify-content-start">
+                <small class="p-0">{{ordem?.data | date}}</small>
+              </div>
+              <div class="row no-gutters justify-content-start" style="color:#5D5FEF;">
+                {{ordem?.valor | currency : 'BRL'}}
+              </div>
+            </div>
+            <div class="col d-flex align-items-center" style="color:#5D5FEF;">
+              <mat-icon>arrow_forward_ios</mat-icon>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+
+  <ng-container *ngIf="!ordens?.length">
+    <div class="row no-gutters justify-content-center">
+      <h3 class="p-0 m-0"><b>Sem resultados!</b></h3>
+    </div>
+  </ng-container>
+
+</div>
+<div class="col-12 container-router" style="background-color: #f5f5f5"
+  [ngStyle]="{'display' : (ordemShow? 'none':'block')}">
+  <div class="row no-gutters">
+    <div class="col-2 d-flex align-items-center justify-content-center">
+      <mat-icon (click)="ordemShow = true">arrow_back</mat-icon>
+    </div>
+    <div class="col d-flex align-items-center">
+      <h2 class="m-0"><b class="p-0">Filtros</b></h2>
+    </div>
+    <div class="row no-gutters pt-3">
+      <h4><b>Ordenar por:</b></h4>
+    </div>
+  </div>
+
+</div>
+
+<div class="add-ordem d-flex justify-content-end pe-2">
+  <button mat-mini-fab style="background-color: #5D5FEF;" aria-label="Criar ordem">
+    <a routerLink="/ordens/cadastrar">
+      <mat-icon style="color: white;">add</mat-icon>
+    </a>
+  </button>
+</div>

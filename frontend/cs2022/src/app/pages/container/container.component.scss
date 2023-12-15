@@ -1,0 +1,161 @@
+mat-sidenav {
+  width: auto;
+  background-color: var(--cor-fundo-background);
+  border-color: var(--cor-fundo-background);
+}
+
+mat-sidenav-content {
+  min-height: 100vh;
+}
+
+.bgConteudo {
+  background-color: var(--cor-fundo-content);
+
+  @media screen and (min-aspect-ratio: 5/8) {
+    max-width: calc(100vw - 70px);
+  }
+}
+
+.containerIntranet {
+  // height: 100vh;
+  min-height: calc(100vh - 80px);
+  // overflow-x: hidden;
+  display: block;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  background-color: var(--cor-fundo-content);
+    // animation:spin 4s linear infinite;
+
+}
+
+.sidenav-superior {
+  height: var(--height-menu-sidenav);
+  background-color: var(--cor-fundo-content);
+  // padding: 22px;
+  top: 0;
+  position: sticky;
+  z-index: 998;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.container-grids {
+  padding: 2%;
+}
+
+.sidenav-container {
+  background-color: var(--cor-fundo-background);
+}
+
+mat-card {
+  border-radius: 22px;
+}
+
+.pad-container {
+  padding-left: 1.5rem !important;
+}
+
+
+.navDesktop {
+  display: flex;
+}
+
+.container-fluid {
+  padding: 0 !important;
+  padding-left: 0;
+  max-width: auto;
+  @media screen and (min-width: 2560px) {
+    max-width: 2560px;
+  }
+  // left: 0;
+  // display: flex;
+  // justify-content: center;
+}
+
+/* Mobile */
+
+.hide-sticky {
+  display: unset;
+  opacity: 1;
+}
+
+.show-sticky {
+  display: none;
+  opacity: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav-superior {
+    top: -5px;
+    position: sticky;
+    /* margin-bottom: 0; */
+    border-radius: 0;
+    height: 42px;
+  }
+
+  .sticky-menu {
+    padding-top: 5px;
+    transition: 0.2s all;
+
+    ::ng-deep mat-icon {
+      font-size: 22px !important;
+      transition: 0.4s all;
+    }
+
+    app-busca {
+      display: none;
+      opacity: 0;
+      transition: 0.2s all;
+    }
+
+    .hide-sticky {
+      display: none;
+      opacity: 0;
+      transition: 0.3s all;
+    }
+
+    .show-sticky {
+      transition: 0.2s all;
+      display: block;
+      opacity: 1;
+    }
+  }
+
+
+
+  .navDesktop {
+    display: none;
+  }
+
+
+
+  .containerIntranet {
+    padding-right: 0;
+    padding-left: 0;
+    overflow-x: clip;
+  }
+  .pad-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .sidenav {
+    display: none;
+  }
+  ::ng_deep mat-sidenav-content {
+    margin-left: 0;
+  }
+  // app-header-config {
+  //   display: none;
+  // }
+}
+
+.equal {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}

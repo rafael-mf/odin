@@ -1,0 +1,9 @@
+.add-ordem {
+  position                   : fixed !important;
+  bottom                     : 5rem;
+  width                      : 100%;
+  min-height                 : fit-content;
+  height                     : auto;
+  z-index                    : 999;
+  -webkit-tap-highlight-color: transparent !important;
+}

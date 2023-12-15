@@ -1,0 +1,43 @@
+<div id="scrollTop"></div>
+
+<div class="row no-gutters">
+
+  <div class="col-12">
+    <div class="row no-gutters">
+      <div class="hide-mobile">
+        <app-menu-desktop></app-menu-desktop>
+      </div>
+      <div class="col p0">
+        <div class=" bgConteudo">
+          <div class="row no-gutters sidenav-superior pt-0 mt-sm-0  d-flex align-items-center">
+            <div class="col-12 m-0 p-0">
+
+              <div class="row no-gutters pt-2 pb-2" style="border-bottom: solid 1px #ccc;">
+                <b><span style="font-family: sans-serif;
+                  font-weight: bolder;
+                  font-size: 16px;">Clothe<span style="color:#5D5FEF">system</span></span></b>
+              </div>
+
+              <div class="hide-mobile row no-gutters pt-2 ">
+
+                <div class="col m-0 p-0 col-xl" style="overflow:hidden;">
+                  <div class="row no-gutters d-flex justify-content-end  align-items-center">
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="row no-gutters containerIntranet" id="containerIntranet">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+
+        <app-menu class="hide-desktop"></app-menu>
+
+      </div>
+    </div>
+  </div>
+</div>

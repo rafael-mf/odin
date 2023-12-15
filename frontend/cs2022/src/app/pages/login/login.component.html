@@ -1,0 +1,32 @@
+<div class="row align-items-center" style="background-color: #ccc;" style="heigth: 100%;">
+  <div class="col-12 justify-content-center d-flex pl-3 pt-5">
+   <h1> <b>Bem-vindo ao<br><span style="font-family: sans-serif;
+      font-weight: bolder;">Clothe<span style="color:#5D5FEF">system.</span></span></b></h1>
+  </div>
+  <div class="col-12 d-flex align-items-center mt-5 justify-content-center">
+    <div class="row no-gutters">
+      <div class="col-12">
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Usuário</mat-label><br>
+          <input matInput type="text" [value]="login.email">
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="example-form-field m-0 p-0" appearance="fill">
+          <mat-label>Senha</mat-label><br>
+          <input matInput type="password" [value]="login.senha"><br>
+        </mat-form-field>
+      </div>
+      <span class="bottom: 0">
+        <div class="col-12 d-flex jusfy-content-center px-2 pt-5">
+          <button style="width: 100%; background-color:#5D5FEF; color: white;" mat-flat-button
+            (click)="efetuarLogin()">Entrar</button>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <label>Esqueci minha senha</label>
+        </div>
+      </span>
+
+    </div>
+  </div>
+</div>
